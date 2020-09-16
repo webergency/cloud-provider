@@ -1,0 +1,27 @@
+{
+  "name": "cloud-provider",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webergency/cloud-provider.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/webergency/cloud-provider/issues"
+  },
+  "homepage": "https://github.com/webergency/cloud-provider#readme",
+  "dependencies": {
+    "@liqd-js/server": "0.0.3",
+    "@liqd-js/template": "0.0.5",
+    "mongodb": "^3.6.2"
+  }
+}
