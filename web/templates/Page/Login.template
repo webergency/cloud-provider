@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <style>
+            html, body
+            {
+                margin: 0;
+                padding: 0;
+                font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+                font-weight: 300;
+            }
+            main
+            {
+                margin: 20px;
+            }
+        </style>
+        <script src="/data/password.js"></script>
+        <script src="/data/user.js"></script>
+        <script>
+
+            async function register()
+            {
+                return WebergencyCloud.User.login({ email: document.querySelector('input[name="email"]').value, password: document.querySelector('input[name="password"]').value });
+            }
+
+            function beforeSubmit( form, data )
+            {
+                return false;
+            }
+        </script>
+    </head>
+    <body>
+        <main>
+            <h1>New Entity</h1>
+            <div style="width:384px">
+                <form method="POST" action="/api/entity" onsubmit="return beforeSubmit( this, event )">
+                    <Input name="email" label="Email"/>
+                    <Input name="password" type="password" label="Password"/>
+                    <Button onclick="register()">Prihlasit</Button>
+                </form>
+            </div>
+        </main>
+    </body>
+</html>

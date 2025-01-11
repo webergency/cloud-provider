@@ -1,0 +1,66 @@
+<style>
+    label.Select
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
+        border: 1px solid var( --form-select-border-color, var( --form-border-color, #999 ));
+        width: 100%;
+        height: var( --form-select-height, var( --form-height, 48px ));
+        padding: 0 var( --form-select-padding, var( --form-padding, 7px ));
+        font-size: var( --form-select-font-size, var( --form-font-size, 14px ));
+        font-family: var( --form-select-font-family, var( --form-font-family, inherit ));
+        border-radius: var( --form-select-border-radius, var( --form-border-radius, 2px ));
+        margin: var( --form-select-margin, var( --form-margin, 8px 0 ));
+        background: var( --form-select-background, var( --form-background, white ));
+        
+        &.inline
+        {
+            display: inline-flex;
+        }
+
+        >select
+        {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            outline: none;
+            border: none;
+            font-size: inherit;
+            font-family: inherit;
+            line-height: 1.4em;
+            height: 1.4em;
+            background:  transparent;
+            -webkit-appearance: none;
+        }
+
+        &[data-label]:before
+        {
+            content: attr(data-label);
+            pointer-events: none;
+            color: var( --form-select-label-color, var( --form-label-color, #777 ));
+            font-size: var( --form-select-label-font-size, var( --form-label-font-size, 0.75em ));
+            line-height: 1.4em;
+            height: 1.4em;
+        }
+
+        &:focus-within
+        {
+            border-color: var( --form-select-border-color, var( --form-border-color, #1e87f0 ));
+
+            &:before
+            {
+                color: var( --form-select-label-focus-color, var( --form-label-focus-color, #1e87f0 ));
+            }
+        }
+    }
+</style>
+{
+    $props.class = ( 'Select ' + ( $props.class || '' )).trim();
+}
+<label {[ id, class, style ]...$props } data-label={ $props.label }>
+    <select {[ name, selected, on* ]...$props }>
+        {$content}
+    </select>
+</label>

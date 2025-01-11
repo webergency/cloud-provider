@@ -31,23 +31,32 @@
     </head>
     <body>
         <main>
-            <h1>New Entity</h1>
+            <h1>New SQL Database</h1>
             <div style="width:384px">
                 <form method="POST" action="/api/entity">
                     <Input name="name" label="Name" oninput="generateUID( this, 'input[name=&quot;uid&quot;]' )"/>
                     <Input name="uid" label="UID"/>
-                    //<Input label="Password" type="password"/>
-                    <Select name="type" label="Typ">
+                    <Select name="engine" label="Engine">
                         <option disabled selected value></option>
-                        <option value="test">Test</option>
-                        <option value="test1">Test1</option>
-                        <option value="test2">Test2</option>
+                        <option value="mysql">MySQL</option>
+                        <option value="mariadb">MariaDB</option>
+                        <option value="sqlserver">SQL Server</option>
+                        <option value="oracle">Oracle</option>
+                        <option value="prostgre">Postgre SQL</option>
                     </Select>
-                    <Radio name="toto" label="To" value="raz"><span>Prd</span></Radio>
-                    <Radio name="toto" label="Abo To" value="dva"/>
-                    <Checkbox name="toto" label="To" value="raz"><span>Prd</span></Checkbox>
-                    <Checkbox name="toto" label="Abo To" value="dva"/>
-                    <Button type="submit">Registrovat</Button>
+                    <Select name="backups" label="Backups">
+                        <option disabled selected value></option>
+                        <option value="none">None</option>
+                        <option value="hourly">Hourly</option>
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                    </Select>
+                    <Toggle name="toto" label="High availability" value="raz"/>
+                    <Radio name="toto" label="Hej" value="raz"/>
+                    <Radio name="toto" label="Ne" value="raz"/>
+                    <Checkbox name="toto" label="Multi instance" value="raz"/>
+                    <Button type="submit">Create</Button>
                 </form>
             </div>
         </main>

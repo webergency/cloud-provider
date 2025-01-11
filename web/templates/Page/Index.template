@@ -5,6 +5,9 @@
     </head>
     <body>
         <h1>Cloud</h1>
-        <a href="/entity/create">New Entity</a>
+        <a href="/entity/create">New Entity</a><br/>
+        <a href="/sql/create">New SQL</a><br/>
+        <a href="/user/create">Register</a><br/>
+        <a href="/user/login">Login</a><br/>
     </body>
 </html>

@@ -1,0 +1,71 @@
+<style>
+    label.Radio
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: var( --form-input-font-size, var( --form-font-size, 14px ));
+        font-family: var( --form-input-font-family, var( --form-font-family, inherit ));
+        margin: var( --form-input-margin, var( --form-margin, 8px 0 ));
+        padding: 0;
+        cursor: pointer;
+        pointer-events: none;
+        
+        &.inline
+        {
+            display: inline-flex;
+        }
+
+        >input
+        {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            outline: none;
+            border: none;
+            font-size: inherit;
+            font-family: inherit;
+            height: var( --form-checkbox-size, var( --form-size, 22px ));
+            width: var( --form-checkbox-size, var( --form-size, 22px ));
+            margin-left: 1px;
+            margin-right: 9px;
+            border: 1px solid var( --form-radio-border-color, var( --form-border-color, #999 ));
+            border-radius: 50%;
+            background: var( --form-radio-background, var( --form-background, white ));
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            pointer-events: auto;
+
+            &:checked
+            {
+                background: var( --form-radio-checked-background, var( --form-highlight-background, #1e87f0 ));
+                background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22%23fff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%3C%2Fsvg%3E");
+                background-repeat: no-repeat;
+                background-size: 100%;
+                background-position: center;
+                border-color: var( --form-radio-checked-border-color, var( --form-radio-checked-background, var( --form-highlight-background, #1e87f0 )));
+            }
+        }
+
+        &[data-label]:after
+        {
+            content: attr(data-label);
+            pointer-events: auto;
+        }
+
+        >*
+        {
+            pointer-events: auto;
+        }
+    }
+</style>
+{
+    $props.class = ( 'Radio ' + ( $props.class || '' )).trim();
+    $props.type = $props.type || 'text';
+}
+<label {[ id, class, style ]...$props } data-label={ $props.label }>
+    <input type="radio" {[ name, checked, value, on* ]...$props } />
+    {$content}
+</label>

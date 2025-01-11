@@ -1,0 +1,64 @@
+<style>
+    label.Input
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
+        border: 1px solid var( --form-input-border-color, var( --form-border-color, #999 ));
+        width: 100%;
+        height: var( --form-input-height, var( --form-height, 48px ));
+        padding: 0 var( --form-input-padding, var( --form-padding, 7px ));
+        font-size: var( --form-input-font-size, var( --form-font-size, 14px ));
+        font-family: var( --form-input-font-family, var( --form-font-family, inherit ));
+        border-radius: var( --form-input-border-radius, var( --form-border-radius, 2px ));
+        margin: var( --form-input-margin, var( --form-margin, 8px 0 ));
+        background: var( --form-input-background, var( --form-background, white ));
+        
+        &.inline
+        {
+            display: inline-flex;
+        }
+
+        >input
+        {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            outline: none;
+            border: none;
+            font-size: inherit;
+            font-family: inherit;
+            line-height: 1.4em;
+            height: 1.4em;
+            background: transparent;
+        }
+
+        &[data-label]:before
+        {
+            content: attr(data-label);
+            pointer-events: none;
+            color: var( --form-input-label-color, var( --form-label-color, #777 ));
+            font-size: var( --form-input-label-font-size, var( --form-label-font-size, 0.75em ));
+            line-height: 1.4em;
+            height: 1.4em;
+        }
+
+        &:focus-within
+        {
+            border-color: var( --form-input-border-color, var( --form-border-color, #1e87f0 ));
+
+            &:before
+            {
+                color: var( --form-input-label-focus-color, var( --form-label-focus-color, #1e87f0 ));
+            }
+        }
+    }
+</style>
+{
+    $props.class = ( 'Input ' + ( $props.class || '' )).trim();
+    $props.type = $props.type || 'text';
+}
+<label {[ id, class, style ]...$props } data-label={ $props.label }>
+    <input {[ type, name, value, on* ]...$props } />
+</label>
